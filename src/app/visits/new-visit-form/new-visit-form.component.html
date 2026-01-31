@@ -1,0 +1,51 @@
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay">
+  <div class="modal-wrapper">
+
+    <!-- MODAL CARD -->
+    <div class="modal-card">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+
+        <h2 class="modal-title">New Visits</h2>
+
+        <ion-icon
+          name="close-outline"
+          class="close-btn"
+          (click)="close()"
+        ></ion-icon>
+
+        <p class="subtitle">Enter Visit Details</p>
+      </div>
+
+      <!-- CUSTOMER -->
+      <div class="input-label">Customer</div>
+      <div class="input-group">
+        <ion-icon name="person-outline" class="input-icon"></ion-icon>
+        <input type="text" placeholder="Enter customer name" />
+      </div>
+
+      <!-- DATE -->
+      <div class="input-label">Date</div>
+      <div class="input-group">
+        <ion-icon name="calendar-outline" class="input-icon"></ion-icon>
+        <input type="date" />
+      </div>
+
+      <!-- REMARK -->
+      <div class="input-label">Remark</div>
+      <div class="input-group textarea">
+        <ion-icon name="create-outline" class="input-icon"></ion-icon>
+        <textarea placeholder="Enter remark"></textarea>
+      </div>
+
+      <!-- BUTTON ROW -->
+      <div class="button-row">
+        <button class="cancel-btn" (click)="close()">Cancel</button>
+        <button class="save-btn">Save Visit</button>
+      </div>
+
+    </div>
+  </div>
+</div>

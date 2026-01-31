@@ -1,0 +1,88 @@
+<ion-header class="header">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Collection Plan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <!-- LEFT: DATE ONLY -->
+    <div class="date-box" (click)="openDatePicker()">
+      <span class="date-text">{{ formattedDate }}</span>
+      <img src="assets/Calendar.svg" class="calendar-icon" />
+      <ion-input
+        #realDateInput
+        type="date"
+        [(ngModel)]="selectedDate"
+        (ionChange)="onDateChange($event)"
+        class="hidden-native-input"
+      ></ion-input>
+    </div>
+
+    <!-- RIGHT GROUP: FILTER + NEW -->
+    <div class="right-group">
+      <button class="filter-button" (click)="toggleFilter()">
+        Filter
+        <img src="assets/icon/filter.svg" class="filter-svg" />
+      </button>
+
+      <button class="new-button">
+        <ion-icon name="add"></ion-icon>
+        New
+      </button>
+
+      <!-- DROPDOWN -->
+      <div class="filter-dropdown" *ngIf="showFilter">
+        <div class="filter-item" (click)="setFilter('Completed')">
+          Completed
+        </div>
+        <div class="filter-item" (click)="setFilter('In Progress')">
+          In Progress
+        </div>
+        <div class="filter-item" (click)="setFilter('Pending')">Pending</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collection Plan CARDS -->
+  <div *ngFor="let v of filteredVisits">
+    <ion-card class="visit-card" [ngClass]="getCardClass(v.status)">
+      <!-- STATUS BADGE TOP-RIGHT -->
+      <!-- <div class="card-status-badge">
+        <ion-badge class="statusBadge" [ngClass]="getStatusClass(v.status)">
+          {{ v.status }}
+        </ion-badge>
+      </div> -->
+
+      <!-- HEADER ROW WITH AMOUNT -->
+      <!-- HEADER ROW -->
+      <div class="header-row">
+        <h2 class="customer-name">{{ v.name }}</h2>
+
+        <div class="status-and-amount">
+          <ion-badge class="statusBadge" [ngClass]="getStatusClass(v.status)">
+            {{ v.status }}
+          </ion-badge>
+        </div>
+      </div>
+
+      <!-- DETAILS + AMOUNT ROW -->
+      <div class="details-row">
+        <div class="details-left">
+          <p><ion-icon name="person-outline"></ion-icon> {{ v.person }}</p>
+          <p><ion-icon name="call-outline"></ion-icon> {{ v.phone }}</p>
+          <p><ion-icon name="location-outline"></ion-icon> {{ v.address }}</p>
+        </div>
+
+        <div class="amount-col">
+          <span class="amount-rupee">₹</span>
+          <span class="amount-value">{{ v.amount | number:'1.0-0' }}</span>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

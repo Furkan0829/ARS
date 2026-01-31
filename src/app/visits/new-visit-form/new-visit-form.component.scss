@@ -1,0 +1,153 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25) !important;  /* lighter overlay */
+  backdrop-filter: blur(2px) !important;    /* soft blur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-card {
+  width: 92%;
+  max-width: 390px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.10); /* clean & subtle */
+  overflow: hidden;
+  padding-bottom: 22px;
+  font-family: "Roboto", sans-serif;
+}
+
+
+/* CENTERING WRAPPER */
+.modal-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HEADER SECTION EXACT LIKE FIGMA */
+.modal-header {
+  background: #0A66C2;
+  padding: 20px 20px 12px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  position: relative;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  right: 16px;
+  top: 18px;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* TITLE */
+.modal-title {
+  margin: 0;
+  padding-top: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+/* SUBTITLE */
+.subtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #E2E8F0;
+}
+
+/* LABELS */
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 16px 0 6px 20px;
+  color: #333;
+}
+
+/* INPUT GROUP */
+.input-group {
+  position: relative;
+  margin: 0 20px 14px 20px;
+}
+
+/* ICONS */
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  font-size: 18px;
+  color: #6A6A6A;
+}
+
+/* INPUT BOXES */
+.input-group input {
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  background: #F5F5F7;
+  border: 1px solid #E5E5E5;
+  padding-left: 42px;
+  font-size: 14px;
+}
+
+/* REMOVE NATIVE DATE ICON */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 0;
+}
+
+/* TEXTAREA */
+textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  background: #F5F5F7;
+  border: 1px solid #E5E5E5;
+  padding: 12px 12px 12px 42px;
+  font-size: 14px;
+  resize: none;
+}
+
+/* BUTTON ROW */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 20px;
+  margin-top: 6px;
+}
+
+/* CANCEL BUTTON */
+.cancel-btn {
+  width: 48%;
+  height: 48px;
+  border-radius: 10px;
+  background: #E5E7EB;
+  border: 1px solid #D1D5DB;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* SAVE BUTTON */
+.save-btn {
+  width: 48%;
+  height: 48px;
+  border-radius: 10px;
+  background: #0A66C2;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}

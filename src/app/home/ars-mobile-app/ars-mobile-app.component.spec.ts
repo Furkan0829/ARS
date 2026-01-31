@@ -1,0 +1,27 @@
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
+
+import { ArsMobileAppComponent } from './ars-mobile-app.component';
+
+describe('ArsMobileAppComponent', () => {
+  let component: ArsMobileAppComponent;
+  let fixture: ComponentFixture<ArsMobileAppComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        IonicModule.forRoot(),
+        ArsMobileAppComponent   // ✅ standalone component goes in imports
+      ]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(ArsMobileAppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+

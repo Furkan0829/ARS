@@ -1,0 +1,310 @@
+ion-content {
+  --background: #F3F4F6;
+}
+
+/* HEADER */
+.header, .toolbar {
+  --background: rgba(16, 100, 163, 1);
+  --color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* VISIT NUMBER */
+.visit-number {
+  background: #FFFFFF;
+  text-align: center;
+  margin: 0px 0px 12px 0px;
+  padding : 8px 16px 16px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #D7D7D7;
+  color: rgba(16, 100, 163, 1);
+
+}
+
+/* CARD */
+.visit-info-card {
+  position: relative;
+  margin: 16px;
+  padding: 16px 0px 0px 0px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #E5E5E5;
+}
+
+.info-card-content {
+  padding: 0px 16px 16px 16px;
+  gap : 12px;
+}
+
+/* STATUS BADGE */
+.info-status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.status-badge {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.2px;
+}
+
+/* STATUS COLORS */
+.badge-completed {
+  --background: #D7F5E5;
+  --color: #1CA048;
+}
+
+.badge-progress {
+  --background: #E4EDFF;
+  --color: rgba(16, 100, 163, 1);
+}
+
+.badge-pending {
+  --background: #FFE9D6;
+  --color: #B46914;
+}
+
+/* HEADER */
+.info-header h2 {
+  margin: 0 0 6px 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* DETAILS */
+.info-details p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4A4A4A;
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+.info-details ion-icon {
+  font-size: 18px;
+  color: #6A6A6A;
+}
+
+/* DIVIDER */
+.dashed-divider {
+  border-bottom: 1px dashed #C6C6C6;
+  margin: 12px 0 14px 0;
+}
+
+/* CHECK-IN ROW */
+.info-checkin {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0A66C2;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.checkin-icon {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(16, 100, 163, 1);
+}
+
+.checkin-label {
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* CONTAINER (NO GAP, FULL BORDER) */
+.info-tabs {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  
+}
+
+/* DEFAULT TAB */
+.info-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  margin : 0 2px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  background: rgba(240, 240, 240, 1);
+  border-right: 1px solid #D0D0D0;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08) inset;
+
+}
+
+/* REMOVE BORDER FOR LAST TAB */
+.info-tab:last-child {
+  border-right: none;
+}
+
+/* ACTIVE TAB (EXACT LIKE SCREENSHOT) */
+.info-tab.active {
+  background: rgba(16, 100, 163, 1);
+  color: white;
+  border-right: 1px solid rgba(16, 100, 163, 1);
+  border-left: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08) inset;
+
+}
+
+
+/* ACTIVITIES CARD */
+.activities-card {
+  margin: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #D8DCE1;
+  color: #0159A0;
+}
+
+.activities-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.activities-card p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* ACTIVITY ROWS (VERSION A EXACT MATCH) */
+.activity-row {
+  width: 100%;
+  background: rgba(16, 100, 163, 1);
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.activity-row ion-icon {
+  font-size: 18px;
+}
+
+/* CHECKOUT BUTTON */
+.checkout-btn {
+  margin: 20px 16px 10px 16px;
+  --background: rgba(16, 100, 163, 1);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* QUICK LINKS */
+.quick-links-title {
+  margin: 16px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.quick-links-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 16px 30px;
+}
+
+.quick-link {
+  text-align: center;
+  width: 100px;
+}
+
+.ql-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(16, 100, 163, 1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.ql-icon ion-icon {
+  color: white;
+  font-size: 26px;
+}
+
+.quick-link p {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* PENDING BUTTONS */
+
+.pending-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 16px 16px 16px;
+}
+.pending-btn {
+  width : 100%;
+  height: 50px;
+  margin: 12px auto 0 auto;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.pending-btn.blue {
+  background: rgba(16, 100, 163, 1);
+
+}
+
+.pending-btn.green {
+  background: rgba(37, 177, 95, 1);
+
+}
+
+.pending-btn.yellow {
+  background: rgba(234, 175, 74, 1);
+
+}
+
+.pending-btn.red {
+  background: rgba(215, 76, 81, 1);
+
+}
+
+/* COMPLETED BOX */
+.completed-box {
+  margin: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #3CB043;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}

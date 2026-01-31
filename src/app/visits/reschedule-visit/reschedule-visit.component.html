@@ -1,0 +1,57 @@
+<ion-content>
+  <div class="modal-wrapper">
+    <!-- HEADER -->
+    <div class="modal-header">
+      <!-- Centered Title -->
+      <div class="header-text">
+        <h2>Reschedule</h2>
+        <p>Enter Details</p>
+      </div>
+
+      <!-- Close Icon -->
+      <ion-icon name="close-outline" class="close-icon" (click)="close()">
+      </ion-icon>
+    </div>
+
+    <!-- BODY -->
+    <div class="modal-body">
+      <!-- Reason -->
+      <div class="form-group">
+        <label>Reason</label>
+
+        <ion-input [(ngModel)]="reason" placeholder="Enter reason"> </ion-input>
+      </div>
+
+      <!-- Date -->
+      <div class="form-group">
+        <label>Date</label>
+
+        <ion-input type="date" [(ngModel)]="selectedDate"> </ion-input>
+      </div>
+
+      <!-- Remark -->
+      <div class="form-group">
+        <label>Remark <span>*</span></label>
+
+        <ion-textarea [(ngModel)]="remark" placeholder="Enter remark">
+        </ion-textarea>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <ion-button
+        fill="outline"
+        color="medium"
+        expand="block"
+        (click)="cancel()"
+      >
+        Cancel
+      </ion-button>
+
+      <ion-button color="primary" expand="block" (click)="save()">
+        Submit
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

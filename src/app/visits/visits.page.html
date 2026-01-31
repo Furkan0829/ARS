@@ -1,0 +1,100 @@
+<ion-header class="header">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Visits</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <!-- LEFT: DATE ONLY -->
+    <div class="date-box" (click)="openDatePicker()">
+      <span class="date-text">{{ formattedDate }}</span>
+      <img src="assets/Calendar.svg" class="calendar-icon" />
+      <ion-input
+        #realDateInput
+        type="date"
+        [(ngModel)]="selectedDate"
+        class="hidden-native-input"
+      >
+      </ion-input>
+    </div>
+
+    <!-- RIGHT GROUP: FILTER + NEW -->
+    <div class="right-group">
+      <button class="filter-button" (click)="toggleFilter(); $event.stopPropagation()">
+        Filter
+        <img src="assets/icon/filter.svg" class="filter-svg" />
+      </button>
+
+      <button class="new-button" (click)="openNewVisitModal()">
+        <ion-icon name="add"></ion-icon>
+        New
+      </button>
+
+      <!-- DROPDOWN -->
+      <div class="filter-dropdown" *ngIf="showFilter" (click)="$event.stopPropagation()">
+        <div class="filter-item" (click)="setFilter('Completed')">
+          Completed
+        </div>
+        <div class="filter-item" (click)="setFilter('In Progress')">
+          In Progress
+        </div>
+        <div class="filter-item" (click)="setFilter('Pending')">Pending</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISIT CARDS -->
+  <div *ngFor="let v of filteredVisits">
+    <ion-card
+      class="visit-card"
+      [ngClass]="getCardClass(v.status)"
+      (click)="openVisit(v)"
+    >
+      <!-- STATUS BADGE TOP-RIGHT -->
+      <div class="card-status-badge">
+        <ion-badge class="statusBadge" [ngClass]="getStatusClass(v.status)">
+          {{ v.status }}
+        </ion-badge>
+      </div>
+
+      <!-- HEADER -->
+      <div class="header-row">
+        <h2>{{ v.name }}</h2>
+      </div>
+
+      <!-- PERSON, PHONE, ADDRESS -->
+      <div class="details">
+        <p><ion-icon name="person-outline"></ion-icon> {{ v.person }}</p>
+        <p><ion-icon name="call-outline"></ion-icon> {{ v.phone }}</p>
+        <p><ion-icon name="location-outline"></ion-icon> {{ v.address }}</p>
+      </div>
+
+      <!-- ONLY IF CHECK-IN EXISTS (IN PROGRESS OR ANY STATUS) -->
+      <div *ngIf="v.status === 'In Progress'">
+        <!-- DASHED SEPARATOR -->
+        <div class="dashed-line"></div>
+
+        <!-- CHECK-IN ROW -->
+        <div class="checkin-row">
+          <div class="checkin-info">
+            <ion-icon name="time-outline" class="checkin-icon"></ion-icon>
+            <span class="checkin-label">Check-in time : {{ v.checkin }}</span>
+          </div>
+
+          <!-- VIEW DETAILS BUTTON -->
+          <button
+            class="view-details-btn"
+            (click)="openVisit(v); $event.stopPropagation();"
+          >
+            View details
+          </button>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,376 @@
+ion-content {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Edge, Safari) */
+ion-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+ion-content {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for older browsers */
+ion-content::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/* TOOLBAR */
+.toolbar {
+  --background: rgba(16, 100, 163, 1);
+  --color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* ============================= */
+/* TOP BAR FIXED TO FIGMA EXACT */
+/* ============================= */
+
+.top-bar {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 14px 8px 14px; /* left, right, bottom */
+  margin-top: 8px;
+  border-bottom: 1px solid #D9D9D9;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+/* RIGHT BUTTON GROUP (Filter + New) */
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* DATE BOX */
+.date-box {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding: 5px 10px;
+  border: 1px solid #D7D7D7;
+  border-radius: 10px;
+  background: white;
+}
+
+.date-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0A66C2;
+}
+
+.calendar-icon {
+  width: 20px;
+  gap: 16px;
+}
+
+/* Hide Native Date Input */
+.hidden-native-input {
+  display: none;
+}
+
+/* FILTER BUTTON (clean + final) */
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: 1px solid #0A66C2;
+  background: #ffffff;
+  color: rgba(107, 114, 128, 1);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.filter-svg {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(9%) saturate(372%) hue-rotate(175deg) brightness(92%) contrast(87%);
+}
+
+
+/* NEW BUTTON */
+.new-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 8px;
+  background: #0A66C2;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+}
+
+.new-button ion-icon {
+  font-size: 18px;
+}
+
+/* FILTER DROPDOWN */
+.filter-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 16px;
+  background: white;
+  width: 160px;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.filter-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 15px;
+}
+
+.filter-item:last-child {
+  border-bottom: none;
+}
+
+.filter-item:hover {
+  background: #F2F2F2;
+}
+
+/* ===================================== */
+/* CARD + STATUS + DETAILS (Your Existing) */
+/* ===================================== */
+
+.visit-card {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid #E0E0E0;
+  padding: 16px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.05);
+  background: #ffffff;
+  margin-bottom: 18px;
+}
+
+/* STATUS BADGE — Positioning only */
+.card-status-badge {
+  position: absolute;
+  top: 12px;
+}
+
+/* COMPLETED — pastel green */
+.badge-completed {
+  --background: #D7F5E5 !important;
+  --color: #1CA048 !important;
+}
+
+/* IN PROGRESS — pastel blue */
+.badge-progress {
+  --background: #E4EDFF !important;
+  --color: #0A66C2 !important;
+}
+
+/* PENDING — pastel orange */
+.badge-pending {
+  --background: #FFE9D6 !important;
+  --color: #B46914 !important;
+}
+
+/* COMMON BADGE SHAPE */
+.statusBadge {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 4px 6px;
+  border-radius: 50px;
+  text-transform: none;
+  letter-spacing: 0.2px;
+
+  --padding-start: 0;
+  --padding-end: 0;
+  --min-height: 0;
+}
+
+
+/* COMPLETED — pastel green */
+ion-badge[color="success"] {
+  --background: #D7F5E5;
+  --color: #1CA048;
+  border-radius: 50px;
+  padding: 4px 6px;
+}
+
+/* IN PROGRESS — pastel blue */
+ion-badge[color="primary"] {
+  --background: #E4EDFF;
+  --color: #0A66C2;
+  border-radius: 50px;
+  padding: 4px 6px;
+}
+
+/* PENDING — pastel orange */
+ion-badge[color="medium"] {
+  --background: #FFE9D6;
+  --color: #B46914;
+  border-radius: 50px;
+  padding: 4px 6ppx;
+}
+
+/* CARD TITLE */
+/* Header row container */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/* Customer Name (Left side) */
+.customer-name {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+/* DETAILS + AMOUNT ROW */
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* LEFT DETAILS */
+.details-left p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.details-left ion-icon {
+  font-size: 18px;
+  color: #777;
+}
+
+/* AMOUNT (Perfect alignment) */
+.amount-col {
+  text-align: right; /* matches Figma */
+}
+
+.amount-rupee {
+  font-size: 16px;
+  font-weight: 400;
+  color: #0A66C2;
+}
+
+.amount-value {
+  font-size: 18px;
+  font-weight: 400;
+  color: #0A66C2;
+  margin-top: 2px;
+}
+
+
+/* DASHED LINE */
+.dashed-line {
+  border-bottom: 1px dashed #CCCCCC;
+  margin: 16px 0 14px;
+}
+
+/* CHECK-IN */
+.checkin-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+/* CHECK-IN ROW CONTAINER */
+.checkin-info {
+  display: flex;
+  gap: 8px;                 /* perfect spacing between icon + text */
+  font-size: 15px;
+}
+
+/* CHECK-IN ICON (blue + properly sized) */
+.checkin-icon {
+  font-size: 18px;
+  color: #0A66C2;           /* Figma blue */
+}
+
+/* CHECK-IN LABEL */
+.checkin-label {
+  font-size: 14px;
+  font-weight: 400;         /* slightly bold like Figma */
+  color: #0A66C2;
+}
+
+
+/* VIEW DETAILS BUTTON */
+.view-details-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid #0A66C2;
+  color: #0A66C2;
+  font-size: 15px;
+  font-weight: 600;
+  gap: 10px;
+}
+
+/* 3 TABS */
+.action-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  background: #F5F5F5;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+}
+
+
+/* PERSON + PHONE + ADDRESS */
+.details {
+  margin-top: 12px;
+}
+
+.address,
+.details p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #444;
+  margin: 6px 0;
+}
+
+/* CHECK-IN BADGE */
+.checkin-badge {
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* CONTINUE BUTTON */
+.continue-btn {
+  margin-top: 16px;
+  --border-radius: 10px;
+  height: 42px;
+  font-size: 15px;
+  font-weight: 600;
+}

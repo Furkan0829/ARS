@@ -1,0 +1,142 @@
+<ion-header class="header">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/visits" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Visit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!-- Visit Number -->
+  <div class="visit-number">
+    Visit #: {{ visitId }}
+  </div>
+
+  <!-- ====================== VISIT INFO CARD ========================== -->
+  <ion-card class="visit-info-card" [ngClass]="getCardClass(visit.status)">
+    <div class="info-card-content">
+      <!-- STATUS BADGE -->
+      <div class="info-status-badge">
+        <ion-badge class="status-badge" [ngClass]="{
+          'badge-completed': visit.status === 'Completed',
+          'badge-progress': visit.status === 'In Progress',
+          'badge-pending': visit.status === 'Pending'
+        }">
+          {{ visit.status }}
+        </ion-badge>
+      </div>
+
+      <!-- HEADER -->
+      <div class="info-header">
+        <h2>{{ visit.name }}</h2>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="info-details">
+        <p><ion-icon name="person-outline"></ion-icon> {{ visit.person }}</p>
+        <p><ion-icon name="call-outline"></ion-icon> {{ visit.phone }}</p>
+        <p><ion-icon name="location-outline"></ion-icon> {{ visit.address }}</p>
+      </div>
+    </div>
+    <!-- ONLY FOR IN PROGRESS -->
+    <ng-container *ngIf="visit.status === 'In Progress' || visit.status === 'Planned'">
+
+      <div class="dashed-divider"></div>
+
+      <!-- CHECK-IN -->
+      <div class="info-checkin">
+        <ion-icon name="time-outline" class="checkin-icon"></ion-icon>
+        <span class="checkin-label">Check-in time : {{ visit.checkin }}</span>
+      </div>
+
+      <!-- TABS -->
+      <div class="info-tabs">
+        <div class="info-tab active">Follow Up ✓</div>
+        <div class="info-tab">Order taken</div>
+        <div class="info-tab">Collection</div>
+      </div>
+
+    </ng-container>
+
+  </ion-card>
+  <!-- ====================== END CARD ====================== -->
+
+
+  <!-- ====================== IN PROGRESS SECTION ====================== -->
+  <ng-container *ngIf="visit.status === 'In Progress' || visit.status === 'Planned' || visit.status === 'In-Progress'">
+
+    <ion-card class="activities-card">
+      <h3>Visit Activities</h3>
+      <p>Select activities performed during this visit</p>
+
+      <div class="activity-row">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <span>Follow UP</span>
+      </div>
+
+      <div class="activity-row">
+        <ion-icon name="call-outline"></ion-icon>
+        <span>Call Visit</span>
+      </div>
+
+      <div class="activity-row">
+        <ion-icon name="document-text-outline"></ion-icon>
+        <span>Capture Order</span>
+      </div>
+
+      <div class="activity-row">
+        <ion-icon name="albums-outline"></ion-icon>
+        <span>Branding Requirements</span>
+      </div>
+
+    </ion-card>
+
+    <ion-button expand="block" class="checkout-btn">
+  Check Out
+</ion-button>
+
+
+    <!-- Quick Links -->
+    <div class="quick-links-title">Quick Links</div>
+
+    <div class="quick-links-container">
+      <div class="quick-link">
+        <div class="ql-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
+        <p>Corporate Order</p>
+      </div>
+
+      <div class="quick-link">
+        <div class="ql-icon"><ion-icon name="person-add-outline"></ion-icon></div>
+        <p>Create Lead</p>
+      </div>
+
+      <div class="quick-link">
+        <div class="ql-icon"><ion-icon name="people-outline"></ion-icon></div>
+        <p>My Leads</p>
+      </div>
+    </div>
+
+  </ng-container>
+
+
+  <!-- ====================== PENDING SECTION ====================== -->
+  <ng-container *ngIf="visit.status === 'Pending'">
+    <div class="pending-container">
+      <button class="pending-btn blue" (click)="checkOut()">Check In</button>
+      <button class="pending-btn green">Call Visit</button>
+      <button class="pending-btn yellow" (click)="openReschedule()">Reschedule</button>
+      <button class="pending-btn red">Cancel</button>
+    </div>
+  </ng-container>
+
+
+  <!-- ====================== COMPLETED SECTION ====================== -->
+  <ng-container *ngIf="visit.status === 'Completed'">
+    <div class="completed-box">
+      ✔ Visit has been completed
+    </div>
+  </ng-container>
+
+</ion-content>
