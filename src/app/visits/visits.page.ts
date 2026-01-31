@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { NewVisitFormComponent } from './new-visit-form/new-visit-form.component';
 import { VisitsService } from './services/visits.service';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-visits',
@@ -33,6 +35,23 @@ export class VisitsPage implements OnInit {
     await this.visitsService.init();
     this.fetchData();
   }
+
+
+  // Close filter when clicking outside
+@HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent) {
+
+  const target = event.target as HTMLElement;
+
+  const clickedInsideFilter =
+    target.closest('.right-group') ||
+    target.closest('.filter-dropdown');
+
+  if (!clickedInsideFilter) {
+    this.showFilter = false;
+  }
+}
+
 
   // -----------------------------
   // STATUS NORMALIZER
